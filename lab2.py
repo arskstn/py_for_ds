@@ -1,5 +1,5 @@
 import random
-
+#Костин Арсений 8Е21
 class Matrix(object):
     def __init__(self, row, col):
         self.row = row
@@ -14,6 +14,8 @@ class Matrix(object):
         self.data = [[float(input(f'Введите элемент на строке {_}, столбец {__}: ')) for __ in range (self.col)] for _ in range(self.row)]
     
     def summarize(self, other) -> object:
+        if self.row != other.row or self.col != other.col:
+            raise ValueError("Размерности матриц не совпадают, операцию провести нельзя.")
         another = Matrix(self.row, self.col)
         for rows in range(self.row):
             for cols in range(self.col):
@@ -21,6 +23,8 @@ class Matrix(object):
         return another
 
     def subtract(self, other) -> object:
+        if self.row != other.row or self.col != other.col:
+            raise ValueError("Размерности матриц не совпадают, операцию провести нельзя.")
         another = Matrix(self.row, self.col)
         for rows in range(self.row):
             for cols in range(self.col):
@@ -28,6 +32,8 @@ class Matrix(object):
         return another
 
     def multiply(self, other) -> object:
+        if self.col != other.row:
+                        raise ValueError("Количество рядов второй матрицы не совпадает с количеством стобцов первой, операцию провести нельзя.")
         another = Matrix(self.row, other.col)
         for i in range(len(self.data)):
             for j in range(len(other.data[0])):
@@ -94,6 +100,16 @@ def main():
     print("Перемножаем e, f")
     g = Matrix.multiply(e,f)
     Matrix.output(g)
+    print("Создаем и заполняем две матрицы, 3х4 и 4х3")
+    h = Matrix(3,4)
+    i = Matrix(4,3)
+    Matrix.fill(h)
+    Matrix.fill(i)
+    Matrix.output(h)
+    Matrix.output(i)
+    print("Перемножаем их")
+    j = Matrix.multiply(h,i)
+    Matrix.output(j)
 
 
 if __name__ == "__main__":
