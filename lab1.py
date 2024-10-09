@@ -24,13 +24,13 @@ def number_menu():
     try:
         choice = int(input("Выберите операцию с числами:\n1 - Сложение\n2 - Вычитание\n3 - Умножение\n4 - Деление\n5 - Выход в меню\nВведите номер операции: "))
         if (choice == 1):
-            print("Результат:",float(input("Введите первое число: ")) + float(input("Введите первое число: ")))
+            print("Результат:",float(input("Введите первое число: ")) + float(input("Введите второе число: ")))
         elif (choice == 2):
-            print("Результат:",float(input("Введите первое число: ")) - float(input("Введите первое число: ")))
+            print("Результат:",float(input("Введите первое число: ")) - float(input("Введите второе число: ")))
         elif (choice == 3):
-            print("Результат:",float(input("Введите первое число: ")) * float(input("Введите первое число: ")))
+            print("Результат:",float(input("Введите первое число: ")) * float(input("Введите второе число: ")))
         elif (choice == 4):
-            print("Результат:",float(input("Введите первое число: ")) / float(input("Введите первое число: ")))
+            print("Результат:",float(input("Введите первое число: ")) / float(input("Введите второе число: ")))
         elif (choice == 5):
             menu()
         else:
@@ -84,13 +84,13 @@ def matrix_menu():
                 m3 = [[0] * i for _ in range(i)]
                 for i in range(len(m1)):
                     for j in range(len(m2[0])):
-                        for k in range(len(m2)):  # Проходим по строкам матрицы m2
+                        for k in range(len(m2)):
                             m3[i][j] += m1[i][k] * m2[k][j]
                 print(*m3, sep='\n')
                 time.sleep(2)
                 matrix_menu()            
             else:
-                print("Размерности при вычитании должны быть одинаковы, попробуйте еще раз")
+                print("Кол-во столбцов первой матрицы и кол-во строк второй матрицы должны быть одинаковы, попробуйте еще раз")
                 time.sleep(2)
                 matrix_menu()
         elif (choice == 4):
