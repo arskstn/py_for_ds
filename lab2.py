@@ -11,8 +11,12 @@ class Matrix(object):
             print(row)
 
     def fill(self) -> object:
-        self.data = [[float(input(f'Введите элемент на строке {_}, столбец {__}: ')) for __ in range (self.col)] for _ in range(self.row)]
-    
+        try:
+            self.data = [[float(input(f'Введите элемент на строке {_}, столбец {__}: ')) for __ in range (self.col)] for _ in range(self.row)]
+        except ValueError:
+            print("Некорректные данные, перезапустите программу")
+            exit()
+
     def summarize(self, other) -> object:
         if self.row != other.row or self.col != other.col:
             raise ValueError("Размерности матриц не совпадают, операцию провести нельзя.")

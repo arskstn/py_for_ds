@@ -66,6 +66,10 @@ def matrix_menu():
                 print(*m3, sep='\n')
                 time.sleep(2)
                 matrix_menu()
+            else:
+                print("Размерности должны совпадать при этой операции")
+                time.sleep(2)
+                matrix_menu()
         elif (choice == 2):
             i, j = map(int, input("Введите количество строк и столбцов первой матрицы через пробел: ").split())
             k, l = map(int, input("Введите количество строк и столбцов второй матрицы через пробел: ").split())
