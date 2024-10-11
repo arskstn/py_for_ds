@@ -33,7 +33,11 @@ def number_menu():
             print("Результат:",float(input("Введите первое число: ")) * float(input("Введите второе число: ")))
             number_menu()
         elif (choice == 4):
-            print("Результат:",float(input("Введите первое число: ")) / float(input("Введите второе число: ")))
+            try:
+                print("Результат:",float(input("Введите первое число: ")) / float(input("Введите второе число: ")))
+            except ZeroDivisionError:
+                print("Деление на ноль")
+                time.sleep(2)
             number_menu()
         elif (choice == 5):
             menu()
